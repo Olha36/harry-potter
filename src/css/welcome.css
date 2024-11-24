@@ -40,7 +40,7 @@ button {
 .welcome-students button,
 .welcome-teachers button,
 .welcome-houses button {
-  margin-top: 2rem;
+  margin: 2rem 0;
   background-color: #1d1d1d;
   border: 1px solid #f9b50c;
   color: #f9b50c;
@@ -50,6 +50,7 @@ button {
 .welcome-teachers {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 @media screen and (max-width: 576px) {
   .welcome-container h1 {

@@ -3,10 +3,12 @@ import '../css/welcome.css';
 import houses from '../img/houses.jpg';
 import students from '../img/students.jpg';
 import teachers from '../img/teachers.jpg';
-
+// import ShowStudents from '../components/Students';
 interface Button {
   (): void;
 }
+
+
 
 function Welcome() {
   const [showCharacters, setShowCharacters] = useState(false);
@@ -16,6 +18,11 @@ function Welcome() {
     setShowCharacters((prev: boolean) => !prev);
     setText((prev: boolean) => !prev);
   };
+
+  // const handleShowStudents = () => {
+  //   <ShowStudents />
+  // }
+  
 
   return (
     <div className='welcome-wrapper'>

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Bluu Next Cyrillic';
+  src: url('../assets/fonts/Bluu\ Next\ Cyrillic.woff2') format('woff2'),
+    url('../assets/fonts/Bluu\ Next\ Cyrillic.woff.textClipping') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-image: url('../img/home-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Bluu Next Cyrillic', serif;
+}
+.welcome-container h1 {
+  color: #fabf59;
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 5rem 0;
+}
+button {
+    background-color: #F9B50C;
+    border-radius: 6.25rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 1.4375rem;
+    color: #1D1D1D;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+    .welcome-container h1 {
+        font-size: 3rem;
+    }
+}

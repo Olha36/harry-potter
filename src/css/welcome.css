@@ -20,17 +20,39 @@ body {
   padding: 5rem 0;
 }
 button {
-    background-color: #F9B50C;
-    border-radius: 6.25rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    padding: 1.4375rem;
-    color: #1D1D1D;
-    cursor: pointer;
+  background-color: #f9b50c;
+  border-radius: 6.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 1.4375rem;
+  color: #1d1d1d;
+  cursor: pointer;
+  width: 320px;
+  height: 59px;
 }
-
+.welcome-cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 6rem;
+}
+.welcome-students button,
+.welcome-teachers button,
+.welcome-houses button {
+  margin-top: 2rem;
+  background-color: #1d1d1d;
+  border: 1px solid #f9b50c;
+  color: #f9b50c;
+}
+.welcome-houses,
+.welcome-students,
+.welcome-teachers {
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (max-width: 576px) {
-    .welcome-container h1 {
-        font-size: 3rem;
-    }
+  .welcome-container h1 {
+    font-size: 3rem;
+  }
 }

@@ -10,6 +10,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Bluu Next Cyrillic', serif;
+  background-attachment: fixed;
 }
 .welcome-container h1 {
   color: #fabf59;
@@ -36,7 +37,7 @@ button {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 6rem;
+  margin-top: 13rem;
 }
 .welcome-students button,
 .welcome-teachers button,
@@ -56,5 +57,10 @@ button {
 @media screen and (max-width: 576px) {
   .welcome-container h1 {
     font-size: 3rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body {
+    background-attachment: scroll; 
   }
 }

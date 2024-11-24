@@ -10,6 +10,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Bluu Next Cyrillic', serif;
+  background-attachment: fixed;
 }
 .welcome-container h1 {
   color: #fabf59;
@@ -17,20 +18,49 @@ body {
   font-size: 5rem;
   font-weight: 700;
   margin: 0;
-  padding: 5rem 0;
+  padding: 12rem 0 7rem;
 }
 button {
-    background-color: #F9B50C;
-    border-radius: 6.25rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    padding: 1.4375rem;
-    color: #1D1D1D;
-    cursor: pointer;
+  background-color: #f9b50c;
+  border-radius: 6.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 1.4375rem;
+  color: #1d1d1d;
+  cursor: pointer;
+  width: 320px;
+  height: 59px;
 }
-
+.welcome-cards {
+    display: none;
+  /* display: flex; */
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 13rem;
+}
+.welcome-students button,
+.welcome-teachers button,
+.welcome-houses button {
+  margin: 2rem 0;
+  background-color: #1d1d1d;
+  border: 1px solid #f9b50c;
+  color: #f9b50c;
+}
+.welcome-houses,
+.welcome-students,
+.welcome-teachers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media screen and (max-width: 576px) {
-    .welcome-container h1 {
-        font-size: 3rem;
-    }
+  .welcome-container h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  body {
+    background-attachment: scroll; 
+  }
 }

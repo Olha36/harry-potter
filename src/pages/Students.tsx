@@ -5,17 +5,10 @@ function Students() {
   const [studentsPageComponent, setStudentsPageComponent] = useState<JSX.Element | null>(null);
 
   useEffect(() => {
-    StudentsPage().then(component => {
-      setStudentsPageComponent(component);
-    });
+    setStudentsPageComponent(<StudentsPage />);
   }, []);
 
-  return (
-    <div>
-      {studentsPageComponent}
-      <h1>Students page</h1>
-    </div>
-  );
+  return <div>{studentsPageComponent}</div>;
 }
 
 export default Students;

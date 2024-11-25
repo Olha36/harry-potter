@@ -3,7 +3,6 @@ import '../css/welcome.css';
 import houses from '../img/houses.jpg';
 import students from '../img/students.jpg';
 import teachers from '../img/teachers.jpg';
-// import ShowStudents from '../components/Students';
 interface Button {
   (): void;
 }
@@ -19,9 +18,7 @@ function Welcome() {
     setText((prev: boolean) => !prev);
   };
 
-  // const handleShowStudents = () => {
-  //   <ShowStudents />
-  // }
+  
   
 
   return (

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import '../css/students.css';
+import arrow from '../img/arrow.png';
 
 export default function ShowStudents() {
   interface Student {
@@ -55,14 +57,20 @@ export default function ShowStudents() {
             <p>{student.alternate_names[0]}</p>
             <p>{student.house}</p>
             <p>{student.dateOfBirth || 'Unknown'}</p>
-            <p>{student.wizard}</p>
-            <p>{student.ancestry}</p>
-            <p>{student.eyeColour}</p>
-            <p>{student.hairColour}</p>
-            <p>{student.patronus}</p>
-            <p>{student.hogwartsStudent}</p>
-            <p>{student.hogwartsStaff}</p>
-            <p>{student.actor}</p>
+            <div className='button-group'>
+              <p>Більше інформації</p>
+              <img src={arrow} alt='arrow' />
+            </div>
+            <div className='students-more_info'>
+              <p>{student.wizard}</p>
+              <p>{student.ancestry}</p>
+              <p>{student.eyeColour}</p>
+              <p>{student.hairColour}</p>
+              <p>{student.patronus}</p>
+              <p>{student.hogwartsStudent}</p>
+              <p>{student.hogwartsStaff}</p>
+              <p>{student.actor}</p>
+            </div>
           </div>
         ))}
       </div>

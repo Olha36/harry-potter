@@ -50,7 +50,7 @@ body {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
   }
   
-  .student-card img {
+  .student-picture {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -83,11 +83,13 @@ body {
     margin: 0;
   }
   
-  .button-group img {
+  .button-group > img {
     width: 18px;
     height: auto;
   }
-  
+  .students-more_info {
+    display: none;
+  }
   h1 {
     color: #fabf59;
     text-align: center;

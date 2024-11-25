@@ -52,7 +52,7 @@ export default function ShowStudents() {
       <div className='students-container'>
         {students.map((student) => (
           <div key={student.name} className='student-card'>
-            <img src={student.image} alt={`${student.name}'s portrait`} width='150' />
+            <img className='student-picture' src={student.image} alt={`${student.name}'s portrait`} width='150' />
             <h2>{student.name}</h2>
             <p>{student.alternate_names[0]}</p>
             <p>{student.house}</p>

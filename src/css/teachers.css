@@ -1,0 +1,15 @@
+h1 {
+    font-size: 5rem;
+}
+.hogwards-teachers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+.hogwards-teachers svg {
+  color: #fabf59;
+  margin-left: 10rem;
+  transform: scale(5);
+  cursor: pointer;
+}

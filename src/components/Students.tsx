@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { TfiHome } from 'react-icons/tfi';
 import '../css/students.css';
 import arrow from '../img/arrow.png';
 
@@ -42,12 +43,15 @@ export default function ShowStudents() {
       }
     };
 
-    fetchStudents(); // Call the async function
-  }, []); // Empty dependency array means this runs only once when the component mounts
+    fetchStudents();
+  }, []);
 
   return (
     <>
-      <h1>Студенти Хогвордсу</h1>
+      <div className='hogwards-students'>
+        <h1>Студенти Хогвордсу</h1>
+        <TfiHome />
+      </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='students-container'>
         {students.map((student) => (

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { TfiHome } from 'react-icons/tfi';
+import { useNavigate } from 'react-router-dom';
 import '../css/students.css';
 import arrow from '../img/arrow.png';
+import Welcome from '../pages/Welcome';
 
 export default function ShowStudents() {
   interface Student {
@@ -22,6 +24,17 @@ export default function ShowStudents() {
 
   const [students, setStudents] = useState<Student[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
+
+  const handleHomeButton = () => {
+    navigate('/welcome');
+    return (
+      <>
+        <Welcome />
+      </>
+    );
+  };
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -50,7 +63,7 @@ export default function ShowStudents() {
     <>
       <div className='hogwards-students'>
         <h1>Студенти Хогвордсу</h1>
-        <TfiHome />
+        <TfiHome onClick={handleHomeButton} />
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='students-container'>

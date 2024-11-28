@@ -4,7 +4,7 @@ import Welcome from '../pages/Welcome';
 import '../css/teachers.css'
 export default function Teachers() {
   const navigate = useNavigate();
-  const handleTeachersButton = () => {
+  const handleHomeButton = () => {
     navigate('/welcome');
     return (
       <>
@@ -17,7 +17,7 @@ export default function Teachers() {
     <>
       <div className='hogwards-teachers'>
         <h1>Співробітники Хогвордсу</h1>
-        <TfiHome onClick={handleTeachersButton} />
+        <TfiHome onClick={handleHomeButton} />
       </div>
       <div className='hogwards-container'></div>
     </>

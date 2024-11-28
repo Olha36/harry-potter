@@ -5,6 +5,7 @@ import houses from '../img/houses.jpg';
 import students from '../img/students.jpg';
 import teachers from '../img/teachers.jpg';
 import Students from './Students';
+import Teachers from './Teachers';
 interface Button {
   (): void;
 }
@@ -28,6 +29,15 @@ function Welcome() {
     );
   };
 
+  const handleTeachersPageButton =() => {
+    navigate('/teachers');
+    return (
+      <>
+        <Teachers />
+      </>
+    );
+  }
+
   return (
     <div className='welcome-wrapper'>
       <div className='welcome-container'>
@@ -35,7 +45,6 @@ function Welcome() {
           Ласкаво просимо <br /> у світ Гаррі Поттера
         </h1>
         <button className='show-characters' onClick={handleShowCharactersButton}>
-          {' '}
           {text ? 'Сховати персонажів' : 'Показати всіх персонажів'}
         </button>
       </div>
@@ -46,7 +55,7 @@ function Welcome() {
         </div>
         <div className='welcome-teachers'>
           <img src={teachers} alt='teachers' />
-          <button>Співробітники Хогвордсу</button>
+          <button onClick={handleTeachersPageButton}>Співробітники Хогвордсу</button>
         </div>
         <div className='welcome-houses'>
           <img src={houses} alt='houses' />

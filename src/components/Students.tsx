@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { TfiHome } from 'react-icons/tfi';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
 import '../css/students.css';
 import arrow from '../img/arrow.png';
 import Welcome from '../pages/Welcome';
@@ -61,15 +62,15 @@ export default function ShowStudents() {
 
   return (
     <>
-      <div className='hogwards-students'>
+      <div className='hogwards-wrapper'>
         <h1>Студенти Хогвордсу</h1>
         <TfiHome onClick={handleHomeButton} />
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div className='students-container'>
+      <div className='container'>
         {students.map((student) => (
-          <div key={student.name} className='student-card'>
-            <img className='student-picture' src={student.image} alt={`${student.name}'s portrait`} width='150' />
+          <div key={student.name} className='container-card'>
+            <img className='card-picture' src={student.image} alt={`${student.name}'s portrait`} width='150' />
             <h2>{student.name}</h2>
             <p>{student.alternate_names[0]}</p>
             <p>{student.house}</p>
@@ -78,7 +79,7 @@ export default function ShowStudents() {
               <p>Більше інформації</p>
               <img src={arrow} alt='arrow' />
             </div>
-            <div className='students-more_info'>
+            <div className='container-more_info'>
               <p>{student.wizard}</p>
               <p>{student.ancestry}</p>
               <p>{student.eyeColour}</p>

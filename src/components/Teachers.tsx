@@ -66,7 +66,7 @@ export default function Teachers() {
       <div className='hogwards-container'>
         {teachers.map((teacher) => (
           <div className='teachers-card' key={teacher.name}>
-            <img src={teacher.image} alt={teacher.name} />
+            <img className='teacher-image' src={teacher.image} alt={teacher.name} />
             <h2>{teacher.name}</h2>
             <p>{teacher.species}</p>
             <p>{teacher.gender}</p>

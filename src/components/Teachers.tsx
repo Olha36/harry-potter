@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { TfiHome } from 'react-icons/tfi';
 import { useNavigate } from 'react-router-dom';
+import '../App.css'
 import '../css/teachers.css';
 import Welcome from '../pages/Welcome';
+import arrow from '../img/arrow.png';
 
 export default function Teachers() {
   const navigate = useNavigate();
@@ -58,24 +60,24 @@ export default function Teachers() {
   }, []);
   return (
     <>
-      <div className='hogwards-teachers'>
+      <div className='hogwards-wrapper'>
         <h1>Співробітники Хогвордсу</h1>
         <TfiHome onClick={handleHomeButton} />
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div className='hogwards-container'>
+      <div className='container'>
         {teachers.map((teacher) => (
-          <div className='teachers-card' key={teacher.name}>
-            <img className='teacher-image' src={teacher.image} alt={teacher.name} />
+          <div className='container-card' key={teacher.name}>
+            <img className='card-picture' src={teacher.image} alt={teacher.name} />
             <h2>{teacher.name}</h2>
             <p>{teacher.species}</p>
             <p>{teacher.gender}</p>
             <p>{teacher.house}</p>
             <div className='button-group'>
-              <p>{teacher.actor}</p>
-              <img src={teacher.image} alt={teacher.name} />
+            <p>Більше інформації</p>
+            <img src={arrow} alt='arrow' />
             </div>
-            <div className='teachers-more_info'>
+            <div className='container-more_info'>
               <p>{teacher.dateOfBirth}</p>
               <p>{teacher.wizard ? 'Wizard' : 'Not a wizard'}</p>
               <p>{teacher.ancestry}</p>

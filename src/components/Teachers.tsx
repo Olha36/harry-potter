@@ -71,11 +71,24 @@ export default function Teachers() {
             className='container-card'
             key={teacher.name}
             style={{
-              backgroundImage: `url(${teacher.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundImage: teacher.image ? `url(${teacher.image})` : 'none',
+              backgroundSize: teacher.image ? 'cover' : 'initial',
+              backgroundPosition: teacher.image ? 'center' : 'initial',
             }}
           >
+            {!teacher.image && (
+              <div
+                style={{
+                  height: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <span style={{ fontSize: '25px', fontStyle: 'italic' }}>Image is absent in the URL</span>
+              </div>
+            )}
+
             <div className='card-content'>
               <h2>{teacher.name}</h2>
               <p>

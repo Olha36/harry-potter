@@ -67,37 +67,27 @@ export default function Teachers() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='container'>
         {teachers.map((teacher) => (
-          <div
-            className='container-card'
-            key={teacher.name}
-            style={{
-              backgroundImage: `url(${teacher.image || 'fallback-image-url'})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            {/* <img className='card-picture' src={teacher.image} alt={teacher.name} /> */}
-            <div className='card-content'>
-              <h2>{teacher.name}</h2>
-              <p>{teacher.species}</p>
-              <p>{teacher.gender}</p>
-              <p>{teacher.house}</p>
-              <div className='button-group'>
-                <p>Більше інформації</p>
-                <img src={arrow} alt='arrow' />
-              </div>
-            </div>
-            <div className='container-more_info'>
-              <p>{teacher.dateOfBirth}</p>
-              <p>{teacher.wizard ? 'Wizard' : 'Not a wizard'}</p>
-              <p>{teacher.ancestry}</p>
-              <p>{teacher.eyeColour}</p>
-              <p>{teacher.hairColour}</p>
-              <p>{teacher.patronus}</p>
-              <p>{teacher.hogwartsStudent ? 'Student' : 'Not a student'}</p>
-              <p>{teacher.hogwartsStaff ? 'Staff' : 'Not a staff'}</p>
-            </div>
-          </div>
+         <div
+         className="container-card"
+         key={teacher.name}
+         style={{
+           backgroundImage: `url(${teacher.image})`,
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+         }}
+       >
+         <div className="card-content">
+           <h2>{teacher.name}</h2>
+           <p>{teacher.species}</p>
+           <p>{teacher.gender}</p>
+           <p>{teacher.house}</p>
+           <div className="button-group">
+             <p>Більше інформації</p>
+             <img src={arrow} alt="arrow" />
+           </div>
+         </div>
+       </div>
+       
         ))}
       </div>
     </>

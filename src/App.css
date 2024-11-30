@@ -21,7 +21,8 @@ h1 {
   margin: 0 auto;
 }
 .container-card {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7); /* fallback for when no image is present */
+  background-blend-mode: overlay;
   border-radius: 12px;
   overflow: hidden;
   width: 60%;
@@ -31,6 +32,12 @@ h1 {
   color: #fabf59;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 300px; /* Adjust as needed */
+  background-size: cover;
+  background-position: center;
 }
 .container-card:hover {
   transform: translateY(-5px);
@@ -48,6 +55,17 @@ h1 {
   font-size: 0.9rem;
   margin: 0.3rem 0;
   color: #ccc;
+}
+.card-content {
+  
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.card-content h2 {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: #fabf59;
 }
 .button-group {
   display: flex;

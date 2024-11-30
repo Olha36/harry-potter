@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { TfiHome } from 'react-icons/tfi';
 import { useNavigate } from 'react-router-dom';
-import '../App.css'
+import '../App.css';
 import '../css/teachers.css';
-import Welcome from '../pages/Welcome';
 import arrow from '../img/arrow.png';
+import Welcome from '../pages/Welcome';
 
 export default function Teachers() {
   const navigate = useNavigate();
@@ -67,15 +67,25 @@ export default function Teachers() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='container'>
         {teachers.map((teacher) => (
-          <div className='container-card' key={teacher.name}>
-            <img className='card-picture' src={teacher.image} alt={teacher.name} />
-            <h2>{teacher.name}</h2>
-            <p>{teacher.species}</p>
-            <p>{teacher.gender}</p>
-            <p>{teacher.house}</p>
-            <div className='button-group'>
-            <p>Більше інформації</p>
-            <img src={arrow} alt='arrow' />
+          <div
+            className='container-card'
+            key={teacher.name}
+            style={{
+              backgroundImage: `url(${teacher.image || 'fallback-image-url'})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            {/* <img className='card-picture' src={teacher.image} alt={teacher.name} /> */}
+            <div className='card-content'>
+              <h2>{teacher.name}</h2>
+              <p>{teacher.species}</p>
+              <p>{teacher.gender}</p>
+              <p>{teacher.house}</p>
+              <div className='button-group'>
+                <p>Більше інформації</p>
+                <img src={arrow} alt='arrow' />
+              </div>
             </div>
             <div className='container-more_info'>
               <p>{teacher.dateOfBirth}</p>

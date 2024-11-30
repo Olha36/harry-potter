@@ -78,7 +78,17 @@ export default function Teachers() {
        >
          <div className="card-content">
            <h2>{teacher.name}</h2>
-           <p>{teacher.species}</p>
+           <p>
+            {teacher.alternate_names && teacher.alternate_names.length > 0 ? (
+              teacher.alternate_names.slice(0, 2).map((name, index) => (
+                <span key={index}>{name}
+                {index === 0 && teacher.alternate_names.length > 1 ? ',' : ''}
+                </span>
+              ))
+            ) : (
+              <span>Teacher has no alternative names</span>
+            )}
+           </p>
            <p>{teacher.gender}</p>
            <p>{teacher.house}</p>
            <div className="button-group">

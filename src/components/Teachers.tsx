@@ -67,37 +67,37 @@ export default function Teachers() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='container'>
         {teachers.map((teacher) => (
-         <div
-         className="container-card"
-         key={teacher.name}
-         style={{
-           backgroundImage: `url(${teacher.image})`,
-           backgroundSize: 'cover',
-           backgroundPosition: 'center',
-         }}
-       >
-         <div className="card-content">
-           <h2>{teacher.name}</h2>
-           <p>
-            {teacher.alternate_names && teacher.alternate_names.length > 0 ? (
-              teacher.alternate_names.slice(0, 2).map((name, index) => (
-                <span key={index}>{name}
-                {index === 0 && teacher.alternate_names.length > 1 ? ',' : ''}
-                </span>
-              ))
-            ) : (
-              <span>Teacher has no alternative names</span>
-            )}
-           </p>
-           <p>{teacher.gender}</p>
-           <p>{teacher.house}</p>
-           <div className="button-group">
-             <p>Більше інформації</p>
-             <img src={arrow} alt="arrow" />
-           </div>
-         </div>
-       </div>
-       
+          <div
+            className='container-card'
+            key={teacher.name}
+            style={{
+              backgroundImage: `url(${teacher.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className='card-content'>
+              <h2>{teacher.name}</h2>
+              <p>
+                {teacher.alternate_names && teacher.alternate_names.length > 0 ? (
+                  teacher.alternate_names.slice(0, 2).map((name, index) => (
+                    <span key={index}>
+                      {name}
+                      {index === 0 && teacher.alternate_names.length > 1 ? ',' : ''}
+                    </span>
+                  ))
+                ) : (
+                  <span>Teacher has no alternative names</span>
+                )}
+              </p>
+              <p>{teacher.gender ? <span>{teacher.gender}</span> : <span>Gender not specified</span>}</p>
+              <p>{teacher.house ? <span>{teacher.house}</span> : <span>House is not specified</span>}</p>
+              <div className='button-group'>
+                <p>Більше інформації</p>
+                <img src={arrow} alt='arrow' />
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </>

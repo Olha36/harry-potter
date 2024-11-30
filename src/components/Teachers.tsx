@@ -5,6 +5,7 @@ import '../App.css';
 import '../css/teachers.css';
 import arrow from '../img/arrow.png';
 import Welcome from '../pages/Welcome';
+import Modal from '../components/Modal';
 
 export default function Teachers() {
   const navigate = useNavigate();
@@ -36,6 +37,16 @@ export default function Teachers() {
   }
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);
+
+  const handleButtonClick = (teacher: Teacher) => {
+    console.log('button clicked');
+    setSelectedTeacher(teacher);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedTeacher(null)
+  }
 
   useEffect(() => {
     const fetchTeachers = async () => {
@@ -105,7 +116,7 @@ export default function Teachers() {
               </p>
               <p>{teacher.gender ? <span>{teacher.gender}</span> : <span>Gender not specified</span>}</p>
               <p>{teacher.house ? <span>{teacher.house}</span> : <span>House is not specified</span>}</p>
-              <div className='button-group'>
+              <div className='button-group' onClick={() =>handleButtonClick(teacher)}>
                 <p>Більше інформації</p>
                 <img src={arrow} alt='arrow' />
               </div>
@@ -113,6 +124,7 @@ export default function Teachers() {
           </div>
         ))}
       </div>
+      {selectedTeacher && <Modal teacher={selectedTeacher} onClose={handleCloseModal} />}
     </>
   );
 }

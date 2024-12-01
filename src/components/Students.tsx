@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { TfiHome } from 'react-icons/tfi';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import Modal from '../components/ModalStudent';
 import '../css/students.css';
 import arrow from '../img/arrow.png';
 import Welcome from '../pages/Welcome';
@@ -10,12 +11,15 @@ export default function ShowStudents() {
   interface Student {
     name: string;
     alternate_names: string[];
+    species: string;
+    gender: string;
     house: string;
     dateOfBirth: string;
     wizard: boolean;
     ancestry: string;
     eyeColour: string;
     hairColour: string;
+    wand: object;
     patronus: string;
     hogwartsStudent: boolean;
     hogwartsStaff: boolean;
@@ -25,6 +29,15 @@ export default function ShowStudents() {
 
   const [students, setStudents] = useState<Student[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+
+  const handleMoreInfoClick = (student: Student) => {
+    setSelectedStudent(student);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedStudent(null);
+  };
 
   const navigate = useNavigate();
 
@@ -106,8 +119,10 @@ export default function ShowStudents() {
                 )}
               </p>
               <p>{student.house ? <span>{student.house}</span> : <span>House is not specified</span>}</p>
-              <p>{student.dateOfBirth ? <span>{student.dateOfBirth}</span> : <span>Date of birth is not specified</span>}</p>
-              <div className='button-group'>
+              <p>
+                {student.dateOfBirth ? <span>{student.dateOfBirth}</span> : <span>Date of birth is not specified</span>}
+              </p>
+              <div className='button-group' onClick={() => handleMoreInfoClick(student)}>
                 <p>Більше інформації</p>
                 <img src={arrow} alt='arrow' />
               </div>
@@ -125,6 +140,7 @@ export default function ShowStudents() {
           </div>
         ))}
       </div>
+      {selectedStudent && <Modal student={selectedStudent} onClose={handleCloseModal} />}
     </>
   );
 }

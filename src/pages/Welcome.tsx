@@ -4,8 +4,9 @@ import '../css/welcome.css';
 import houses from '../img/houses.jpg';
 import students from '../img/students.jpg';
 import teachers from '../img/teachers.jpg';
-import Students from './Students';
-import Teachers from './Teachers';
+import Students from '../pages/Students';
+import Teachers from '../pages/Teachers';
+import Houses from '../components/Houses';
 interface Button {
   (): void;
 }
@@ -38,6 +39,15 @@ function Welcome() {
     );
   }
 
+  const handleHousePageButton = () => {
+    navigate('/houses');
+    return (
+      <>
+      <Houses />
+      </>
+    )
+  }
+
   return (
     <div className='welcome-wrapper'>
       <div className='welcome-container'>
@@ -59,7 +69,7 @@ function Welcome() {
         </div>
         <div className='welcome-houses'>
           <img src={houses} alt='houses' />
-          <button>Персонажі в певному будинку</button>
+          <button onClick={handleHousePageButton}>Персонажі в певному будинку</button>
         </div>
       </div>
     </div>

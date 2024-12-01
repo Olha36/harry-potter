@@ -27,7 +27,7 @@ function Houses() {
       </div>
 
       <div className='houses-list flex'>
-        <div className='gryffindor flex align-items'>
+        <div className='gryffindor flex align-items active'>
             <img src={GryffindorImg} alt="Gryffindor" className="house-img" />
             <h3 className="house-name">Gryffindor</h3>
         </div>

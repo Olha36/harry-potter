@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/welcome.css';
 import houses from '../img/houses.jpg';
 import students from '../img/students.jpg';
 import teachers from '../img/teachers.jpg';
-
+import Students from './Students';
+import Teachers from './Teachers';
 interface Button {
   (): void;
 }
 
 function Welcome() {
+  const navigate = useNavigate();
   const [showCharacters, setShowCharacters] = useState(false);
   const [text, setText] = useState(false);
 
@@ -17,6 +20,24 @@ function Welcome() {
     setText((prev: boolean) => !prev);
   };
 
+  const handleCharactersButton = () => {
+    navigate('/students');
+    return (
+      <>
+        <Students />
+      </>
+    );
+  };
+
+  const handleTeachersPageButton =() => {
+    navigate('/teachers');
+    return (
+      <>
+        <Teachers />
+      </>
+    );
+  }
+
   return (
     <div className='welcome-wrapper'>
       <div className='welcome-container'>
@@ -24,18 +45,17 @@ function Welcome() {
           Ласкаво просимо <br /> у світ Гаррі Поттера
         </h1>
         <button className='show-characters' onClick={handleShowCharactersButton}>
-          {' '}
           {text ? 'Сховати персонажів' : 'Показати всіх персонажів'}
         </button>
       </div>
       <div className='welcome-cards' style={{ display: showCharacters ? 'flex' : 'none' }}>
         <div className='welcome-students'>
           <img src={students} alt='students' />
-          <button>Студенти Хогвортсу</button>
+          <button onClick={handleCharactersButton}>Студенти Хогвортсу</button>
         </div>
         <div className='welcome-teachers'>
           <img src={teachers} alt='teachers' />
-          <button>Співробітники Хогвордсу</button>
+          <button onClick={handleTeachersPageButton}>Співробітники Хогвордсу</button>
         </div>
         <div className='welcome-houses'>
           <img src={houses} alt='houses' />

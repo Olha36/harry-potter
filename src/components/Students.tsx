@@ -78,24 +78,49 @@ export default function ShowStudents() {
               backgroundPosition: student.image ? 'center' : 'initial',
             }}
           >
-            
-            <h2>{student.name}</h2>
-            <p>{student.alternate_names[0]}</p>
-            <p>{student.house}</p>
-            <p>{student.dateOfBirth || 'Unknown'}</p>
-            <div className='button-group'>
-              <p>Більше інформації</p>
-              <img src={arrow} alt='arrow' />
-            </div>
-            <div className='container-more_info'>
-              <p>{student.wizard}</p>
-              <p>{student.ancestry}</p>
-              <p>{student.eyeColour}</p>
-              <p>{student.hairColour}</p>
-              <p>{student.patronus}</p>
-              <p>{student.hogwartsStudent}</p>
-              <p>{student.hogwartsStaff}</p>
-              <p>{student.actor}</p>
+            {!student.image && (
+              <div
+                style={{
+                  height: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <span style={{ fontSize: '25px', fontStyle: 'italic' }}>Image is absent in the URL</span>
+              </div>
+            )}
+
+            <div className='card-content'>
+              <h2>{student.name}</h2>
+              <p>
+                {student.alternate_names && student.alternate_names.length > 0 ? (
+                  student.alternate_names.slice(0, 2).map((name, index) => (
+                    <span key={index}>
+                      {name}
+                      {index === 0 && student.alternate_names.length > 1 ? ',' : ''}
+                    </span>
+                  ))
+                ) : (
+                  <span>Student has not alternate names</span>
+                )}
+              </p>
+              <p>{student.house ? <span>{student.house}</span> : <span>House is not specified</span>}</p>
+              <p>{student.dateOfBirth ? <span>{student.dateOfBirth}</span> : <span>Date of birth is not specified</span>}</p>
+              <div className='button-group'>
+                <p>Більше інформації</p>
+                <img src={arrow} alt='arrow' />
+              </div>
+              <div className='container-more_info'>
+                <p>{student.wizard}</p>
+                <p>{student.ancestry}</p>
+                <p>{student.eyeColour}</p>
+                <p>{student.hairColour}</p>
+                <p>{student.patronus}</p>
+                <p>{student.hogwartsStudent}</p>
+                <p>{student.hogwartsStaff}</p>
+                <p>{student.actor}</p>
+              </div>
             </div>
           </div>
         ))}

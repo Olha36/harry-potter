@@ -69,8 +69,16 @@ export default function ShowStudents() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='container'>
         {students.map((student) => (
-          <div key={student.name} className='container-card'>
-            <img className='card-picture' src={student.image} alt={`${student.name}'s portrait`} width='150' />
+          <div
+            key={student.name}
+            className='container-card'
+            style={{
+              backgroundImage: student.image ? `url(${student.image})` : 'none',
+              backgroundSize: student.image ? 'cover' : 'initial',
+              backgroundPosition: student.image ? 'center' : 'initial',
+            }}
+          >
+            
             <h2>{student.name}</h2>
             <p>{student.alternate_names[0]}</p>
             <p>{student.house}</p>

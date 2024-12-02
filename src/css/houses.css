@@ -1,0 +1,79 @@
+.flex {
+  display: flex;
+}
+.houses-list {
+  justify-content: space-between;
+  border: 1px solid #d9d9d9;
+  border-radius: 100px;
+  width: 95%;
+  margin: 3rem auto 0;
+}
+.align-items {
+  align-items: center;
+}
+.gryffindor,
+.slytherin,
+.ravenclaw,
+.hufflepuff {
+  justify-content: space-evenly;
+  gap: 10px;
+  width: 315px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.gryffindor:hover{
+  color: rgba(178, 34, 34, 1);
+}
+.slytherin:hover {
+  color: rgba(0, 123, 62, 1);
+} 
+.ravenclaw:hover {
+  color: rgba(15, 82, 186, 1);
+}
+.hufflepuff:hover {
+  color: rgba(255, 223, 34, 1);
+}
+.active {
+  background-color: #f9b50c;
+  color: #1d1d1d;
+}
+
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 976px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .houses-list {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hogwards-wrapper svg {
+    transform: scale(3);
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .gryffindor,
+  .slytherin,
+  .ravenclaw,
+  .hufflepuff {
+    width: 210px;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+  .hogwards-wrapper svg {
+    transform: scale(2);
+}
+.hogwards-wrapper {
+    flex-direction: column;
+}
+}

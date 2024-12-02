@@ -114,8 +114,9 @@ export default function Teachers() {
                   <span>Teacher has no alternative names</span>
                 )}
               </p>
-              <p>{teacher.gender ? <span>{teacher.gender}</span> : <span>Gender is not specified</span>}</p>
               <p>{teacher.house ? <span>{teacher.house}</span> : <span>House is not specified</span>}</p>
+              <p>{teacher.dateOfBirth ? <span>{teacher.dateOfBirth}</span> : <span>Date of birth is not specified</span>}</p>
+              
               <div className='button-group' onClick={() =>handleButtonClick(teacher)}>
                 <p>Більше інформації</p>
                 <img src={arrow} alt='arrow' />

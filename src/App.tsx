@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Welcome from './pages/Welcome';
 import Students from './pages/Students'
 import Teachers from './pages/Teachers'
+import Houses from './pages/Houses';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Route path='/welcome' element={<Welcome />} /> 
             <Route path='/students' element={<Students />} />
             <Route path='/teachers' element={<Teachers />} />
+            <Route path='/houses' element={<Houses />} />
           </Routes>
         </HashRouter>
     </div>

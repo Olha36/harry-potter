@@ -1,23 +1,5 @@
 import React from 'react';
-
-interface Student {
-  name: string;
-  alternate_names: string[];
-  species: string;
-  gender: string;
-  house: string;
-  dateOfBirth: string;
-  wizard: boolean;
-  ancestry: string;
-  eyeColour: string;
-  hairColour: string;
-  wand: object;
-  patronus: string;
-  hogwartsStudent: boolean;
-  hogwartsStaff: boolean;
-  actor: string;
-  image: string;
-}
+import Student from './Types';
 
 interface ModalProps {
   student: Student | null;

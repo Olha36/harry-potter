@@ -9,6 +9,7 @@ import RavenclawImg from '../img/houses/ravenclaw.jpg';
 import SlytherinImg from '../img/houses/slytherin.jpg';
 import Welcome from '../pages/Welcome';
 import ModalHouse from './ModalHouse';
+import House from './Types';
 
 const houseAPIs: Record<string, string> = {
   Gryffindor: 'https://hp-api.onrender.com/api/characters/house/gryffindor',
@@ -17,30 +18,30 @@ const houseAPIs: Record<string, string> = {
   Hufflepuff: 'https://hp-api.onrender.com/api/characters/house/hufflepuff',
 };
 
-interface House {
-  id: string;
-  name: string;
-  alternate_names: string[];
-  species: string;
-  gender: string;
-  house: string;
-  dateOfBirth: string;
-  wizard: boolean;
-  ancestry: string;
-  eyeColour: string;
-  hairColour: string;
-  patronus: string;
-  hogwartsStudent: boolean;
-  hogwartsStaff: boolean;
-  actor: string;
-  image: string;
-  wand: {
-    wood: string;
-    core: string;
-    length: number | null;
-  };
-  hogwartStudent: boolean;
-}
+// interface House {
+//   id: string;
+//   name: string;
+//   alternate_names: string[];
+//   species: string;
+//   gender: string;
+//   house: string;
+//   dateOfBirth: string;
+//   wizard: boolean;
+//   ancestry: string;
+//   eyeColour: string;
+//   hairColour: string;
+//   patronus: string;
+//   hogwartsStudent: boolean;
+//   hogwartsStaff: boolean;
+//   actor: string;
+//   image: string;
+//   wand: {
+//     wood: string;
+//     core: string;
+//     length: number | null;
+//   };
+//   hogwartStudent: boolean;
+// }
 
 function Houses() {
   const [error, setError] = useState<string | null>(null);

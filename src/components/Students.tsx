@@ -6,27 +6,9 @@ import Modal from '../components/ModalStudent';
 import '../css/students.css';
 import arrow from '../img/arrow.png';
 import Welcome from '../pages/Welcome';
+import Student from './Types';
 
 export default function ShowStudents() {
-  interface Student {
-    name: string;
-    alternate_names: string[];
-    species: string;
-    gender: string;
-    house: string;
-    dateOfBirth: string;
-    wizard: boolean;
-    ancestry: string;
-    eyeColour: string;
-    hairColour: string;
-    wand: object;
-    patronus: string;
-    hogwartsStudent: boolean;
-    hogwartsStaff: boolean;
-    actor: string;
-    image: string;
-  }
-
   const [students, setStudents] = useState<Student[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);

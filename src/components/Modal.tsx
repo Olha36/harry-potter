@@ -1,41 +1,29 @@
 import React from 'react';
+import ModalTypes from './Types';
 
-interface Teacher {
-  name: string;
-  species: string;
-  gender: string;
-  house: string;
-  dateOfBirth: string;
-  wizard: boolean;
-  ancestry: string;
-  eyeColour: string;
-  hairColour: string;
-  patronus: string;
-  actor: string;
-}
 
 interface ModalProps {
-  teacher: Teacher | null;
+  modal: ModalTypes | null;
   onClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ teacher, onClose }) => {
-  if (!teacher) return null;
+const Modal: React.FC<ModalProps> = ({ modal, onClose }) => {
+  if (!modal) return null;
 
   return (
     <div className='modal-overlay' onClick={onClose}>
       <div className='modal-content' onClick={(e) => e.stopPropagation()}>
-        <h2>{teacher.name}</h2>
-        <p>Species: {teacher.species}</p>
-        <p>Gender: {teacher.gender}</p>
-        <p>House: {teacher.house}</p>
-        <p>Date of Birth: {teacher.dateOfBirth}</p>
-        <p>Wizard: {teacher.wizard ? 'Yes' : 'No'}</p>
-        <p>Ancestry: {teacher.ancestry}</p>
-        <p>Eye Colour: {teacher.eyeColour}</p>
-        <p>Hair Colour: {teacher.hairColour}</p>
-        <p>Patronus: {teacher.patronus}</p>
-        <p>Actor: {teacher.actor}</p>
+        <h2>{modal.name}</h2>
+        <p>Species: {modal.species}</p>
+        <p>Gender: {modal.gender}</p>
+        <p>House: {modal.house}</p>
+        <p>Date of Birth: {modal.dateOfBirth}</p>
+        <p>Wizard: {modal.wizard ? 'Yes' : 'No'}</p>
+        <p>Ancestry: {modal.ancestry}</p>
+        <p>Eye Colour: {modal.eyeColour}</p>
+        <p>Hair Colour: {modal.hairColour}</p>
+        <p>Patronus: {modal.patronus}</p>
+        <p>Actor: {modal.actor}</p>
         <button onClick={onClose}>Close</button>
       </div>
     </div>

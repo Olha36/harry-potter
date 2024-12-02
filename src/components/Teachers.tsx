@@ -109,7 +109,7 @@ export default function Teachers() {
           </div>
         ))}
       </div>
-      {selectedTeacher && <Modal teacher={selectedTeacher} onClose={handleCloseModal} />}
+      {selectedTeacher && <Modal modal={selectedTeacher} onClose={handleCloseModal} />}
     </>
   );
 }

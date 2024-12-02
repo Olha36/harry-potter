@@ -24,7 +24,6 @@ export default function Teachers() {
   const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);
 
   const handleButtonClick = (teacher: Teacher) => {
-    console.log('button clicked');
     setSelectedTeacher(teacher);
   };
 

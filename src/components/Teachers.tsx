@@ -6,6 +6,7 @@ import '../css/teachers.css';
 import arrow from '../img/arrow.png';
 import Welcome from '../pages/Welcome';
 import Modal from '../components/Modal';
+import Teacher from './Types';
 
 export default function Teachers() {
   const navigate = useNavigate();
@@ -18,23 +19,6 @@ export default function Teachers() {
     );
   };
 
-  interface Teacher {
-    name: string;
-    alternate_names: string[];
-    species: string;
-    gender: string;
-    house: string;
-    dateOfBirth: string;
-    wizard: boolean;
-    ancestry: string;
-    eyeColour: string;
-    hairColour: string;
-    patronus: string;
-    hogwartsStudent: boolean;
-    hogwartsStaff: boolean;
-    actor: string;
-    image: string;
-  }
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [selectedTeacher, setSelectedTeacher] = useState<Teacher | null>(null);

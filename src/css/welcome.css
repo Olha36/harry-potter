@@ -12,12 +12,6 @@ body {
   font-family: 'Bluu Next Cyrillic', serif;
   background-attachment: fixed;
 }
-/* .students-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  padding: 2rem;
-  gap: 1rem;
-} */
 
 .welcome-container h1 {
   color: #fabf59;
@@ -40,20 +34,11 @@ button {
 }
 .welcome-cards {
   display: none;
-  /* display: flex; */
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 13rem;
+  margin-top: 5rem;
 }
-/* .welcome-students button,
-.welcome-teachers button,
-.welcome-houses button {
-  margin: 2rem 0;
-  background-color: #1d1d1d;
-  border: 1px solid #f9b50c;
-  color: #f9b50c;
-} */
 .welcome-houses,
 .welcome-students,
 .welcome-teachers {

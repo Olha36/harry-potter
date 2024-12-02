@@ -20,6 +20,19 @@
   width: 315px;
   border-radius: 30px;
   text-transform: uppercase;
+  cursor: pointer;
+}
+.gryffindor:hover{
+  color: rgba(178, 34, 34, 1);
+}
+.slytherin:hover {
+  color: rgba(0, 123, 62, 1);
+} 
+.ravenclaw:hover {
+  color: rgba(15, 82, 186, 1);
+}
+.hufflepuff:hover {
+  color: rgba(255, 223, 34, 1);
 }
 .active {
   background-color: #f9b50c;

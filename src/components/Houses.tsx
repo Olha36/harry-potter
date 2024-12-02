@@ -9,6 +9,13 @@ import RavenclawImg from '../img/houses/ravenclaw.jpg';
 import SlytherinImg from '../img/houses/slytherin.jpg';
 import Welcome from '../pages/Welcome';
 
+const houseAPIs: Record<string, string> = {
+  Gryffindor: 'https://hp-api.onrender.com/api/characters/house/gryffindor',
+  Slytherin: 'https://hp-api.onrender.com/api/characters/house/slytherin',
+  Ravenclaw: 'https://hp-api.onrender.com/api/characters/house/ravenclaw',
+  Hufflepuff: 'https://hp-api.onrender.com/api/characters/house/hufflepuff',
+};
+
 function Houses() {
   const [error, setError] = useState<string | null>(null);
   const [houses, setHouses] = useState<House[]>([]);
@@ -39,12 +46,7 @@ function Houses() {
     image: string;
   }
 
-  const houseAPIs: Record<string, string> = {
-    Gryffindor: 'https://hp-api.onrender.com/api/characters/house/gryffindor',
-    Slytherin: 'https://hp-api.onrender.com/api/characters/house/slytherin',
-    Ravenclaw: 'https://hp-api.onrender.com/api/characters/house/ravenclaw',
-    Hufflepuff: 'https://hp-api.onrender.com/api/characters/house/hufflepuff',
-  };
+ 
 
   const fetchHouseData = async (houseName: string) => {
     const url = houseAPIs[houseName];
@@ -68,7 +70,6 @@ function Houses() {
     fetchHouseData(houseName);
   };
 
-  // Load Gryffindor data on initial render
   useEffect(() => {
     fetchHouseData('Gryffindor');
   }, []);
@@ -143,6 +144,7 @@ function Houses() {
                       <span>Character has no alternative names</span>
                     )}
                   </p>
+                  <p>{house.house || 'House is not specified'}</p>
                   <p>{house.dateOfBirth || 'Date of birth is not specified'}</p>
                   <div className='button-group'>
                     <p>Більше інформації</p>

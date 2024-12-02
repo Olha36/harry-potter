@@ -1,26 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TfiHome } from 'react-icons/tfi';
 import { useNavigate } from 'react-router-dom';
 import '../css/houses.css';
+import arrow from '../img/arrow.png';
 import GryffindorImg from '../img/houses/gryffindor.jpg';
 import HufflepuffImg from '../img/houses/hufflepuff.jpg';
-import RawenclawImg from '../img/houses/ravenclaw.jpg';
+import RavenclawImg from '../img/houses/ravenclaw.jpg';
 import SlytherinImg from '../img/houses/slytherin.jpg';
 import Welcome from '../pages/Welcome';
-import arrow from '../img/arrow.png';
 
 function Houses() {
   const [error, setError] = useState<string | null>(null);
   const [houses, setHouses] = useState<House[]>([]);
-  const [selectedHouse, setSelectedHouse] = useState<House | null>(null);
+  const [selectedHouse, setSelectedHouse] = useState<string>('Gryffindor'); // Default house is Gryffindor
   const navigate = useNavigate();
+
   const handleHomeButton = () => {
     navigate('/welcome');
-    return (
-      <>
-        <Welcome />
-      </>
-    );
+    return <Welcome />;
   };
 
   interface House {
@@ -59,7 +56,6 @@ function Houses() {
       }
       const data = await response.json();
       setHouses(data);
-      setSelectedHouse(data[0] || null);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -68,14 +64,14 @@ function Houses() {
   };
 
   const handleHouseClick = (houseName: string) => {
-    console.log(houseName);
+    setSelectedHouse(houseName);
     fetchHouseData(houseName);
   };
 
-  const handleButtonClick = (house: House) => {
-    console.log('button clicked');
-    setSelectedHouse(house);
-  };
+  // Load Gryffindor data on initial render
+  useEffect(() => {
+    fetchHouseData('Gryffindor');
+  }, []);
 
   return (
     <>
@@ -87,28 +83,28 @@ function Houses() {
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className='houses-list flex'>
-        <div
-          className='gryffindor flex align-items active'
-          role='button'
-          onClick={() => handleHouseClick('Gryffindor')}
-        >
-          <img src={GryffindorImg} alt='Gryffindor' className='house-img' />
-          <h3 className='house-name'>Gryffindor</h3>
-        </div>
-        <div className='slytherin flex align-items' role='button' onClick={() => handleHouseClick('Slytherin')}>
-          <img src={SlytherinImg} alt='Slytherin' className='house-img' />
-          <h3 className='house-name'>Slytherin</h3>
-        </div>
-        <div className='ravenclaw flex align-items' role='button' onClick={() => handleHouseClick('Ravenclaw')}>
-          <img src={RawenclawImg} alt='Ravenclaw' className='house-img' />
-          <h3 className='house-name'>Ravenclaw</h3>
-        </div>
-        <div className='hufflepuff flex align-items' role='button' onClick={() => handleHouseClick('Hufflepuff')}>
-          <img src={HufflepuffImg} alt='Hufflepuff' className='house-img' />
-          <h3 className='house-name'>Hufflepuff</h3>
-        </div>
+        {['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff'].map((house) => {
+          const isActive = selectedHouse === house;
+          const houseImages: Record<string, string> = {
+            Gryffindor: GryffindorImg,
+            Slytherin: SlytherinImg,
+            Ravenclaw: RavenclawImg,
+            Hufflepuff: HufflepuffImg,
+          };
+          return (
+            <div
+              key={house}
+              className={`house flex align-items ${house.toLowerCase()} ${isActive ? 'active' : ''}`}
+              role='button'
+              onClick={() => handleHouseClick(house)}
+            >
+              <img src={houseImages[house]} alt={house} className='house-img' />
+              <h3 className='house-name'>{house}</h3>
+            </div>
+          );
+        })}
       </div>
-      {selectedHouse && (
+      {houses.length > 0 && (
         <div className='house-details '>
           <div className='house-characters container'>
             {houses.map((house) => (
@@ -133,7 +129,6 @@ function Houses() {
                     <span style={{ fontSize: '25px', fontStyle: 'italic' }}>Image is absent in the URL</span>
                   </div>
                 )}
-                {/* <img src={house.image} alt={house.name} className='character-img' /> */}
                 <div className='card-content'>
                   <h4>{house.name}</h4>
                   <p>
@@ -148,14 +143,11 @@ function Houses() {
                       <span>Character has no alternative names</span>
                     )}
                   </p>
-
-                  <p>{house.house ? <span>{house.house}</span> : <span>House is not specified</span>}</p>
-                  <p>{house.dateOfBirth ? <span>{house.dateOfBirth}</span> : <span>Date of birth is not specified</span>}</p>
-              
-                  <div className='button-group' onClick={() =>handleButtonClick(house)}>
-                <p>Більше інформації</p>
-                <img src={arrow} alt='arrow' />
-              </div>
+                  <p>{house.dateOfBirth || 'Date of birth is not specified'}</p>
+                  <div className='button-group'>
+                    <p>Більше інформації</p>
+                    <img src={arrow} alt='arrow' />
+                  </div>
                 </div>
               </div>
             ))}

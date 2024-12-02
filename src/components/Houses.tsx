@@ -7,11 +7,12 @@ import HufflepuffImg from '../img/houses/hufflepuff.jpg';
 import RawenclawImg from '../img/houses/ravenclaw.jpg';
 import SlytherinImg from '../img/houses/slytherin.jpg';
 import Welcome from '../pages/Welcome';
+import arrow from '../img/arrow.png';
 
 function Houses() {
   const [error, setError] = useState<string | null>(null);
   const [houses, setHouses] = useState<House[]>([]);
-  const [selectedHouse, setSelectedHouse] = useState<string | null>(null);
+  const [selectedHouse, setSelectedHouse] = useState<House | null>(null);
   const navigate = useNavigate();
   const handleHomeButton = () => {
     navigate('/welcome');
@@ -58,7 +59,7 @@ function Houses() {
       }
       const data = await response.json();
       setHouses(data);
-      setSelectedHouse(houseName);
+      setSelectedHouse(data[0] || null);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -69,6 +70,11 @@ function Houses() {
   const handleHouseClick = (houseName: string) => {
     console.log(houseName);
     fetchHouseData(houseName);
+  };
+
+  const handleButtonClick = (house: House) => {
+    console.log('button clicked');
+    setSelectedHouse(house);
   };
 
   return (
@@ -104,7 +110,6 @@ function Houses() {
       </div>
       {selectedHouse && (
         <div className='house-details '>
-          <h2>{selectedHouse} Characters</h2>
           <div className='house-characters container'>
             {houses.map((house) => (
               <div
@@ -144,7 +149,13 @@ function Houses() {
                     )}
                   </p>
 
-                  <p>{house.gender}</p>
+                  <p>{house.house ? <span>{house.house}</span> : <span>House is not specified</span>}</p>
+                  <p>{house.dateOfBirth ? <span>{house.dateOfBirth}</span> : <span>Date of birth is not specified</span>}</p>
+              
+                  <div className='button-group' onClick={() =>handleButtonClick(house)}>
+                <p>Більше інформації</p>
+                <img src={arrow} alt='arrow' />
+              </div>
                 </div>
               </div>
             ))}

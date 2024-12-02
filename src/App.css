@@ -18,7 +18,7 @@ h1 {
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 .container-card {
   width: 295px;
@@ -112,21 +112,29 @@ h1 {
   }
 }
 
+@media screen and (max-width: 976px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
   }
-  h1 {
-    font-size: 2rem;
-  }
+ 
   .hogwards-wrapper svg {
     transform: scale(2);
     margin-left: 2rem;
   }
 }
 
+
 @media screen and (max-width: 480px) {
   .container {
     grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 1rem;
   }
 }

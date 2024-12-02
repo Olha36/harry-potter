@@ -18,31 +18,6 @@ const houseAPIs: Record<string, string> = {
   Hufflepuff: 'https://hp-api.onrender.com/api/characters/house/hufflepuff',
 };
 
-// interface House {
-//   id: string;
-//   name: string;
-//   alternate_names: string[];
-//   species: string;
-//   gender: string;
-//   house: string;
-//   dateOfBirth: string;
-//   wizard: boolean;
-//   ancestry: string;
-//   eyeColour: string;
-//   hairColour: string;
-//   patronus: string;
-//   hogwartsStudent: boolean;
-//   hogwartsStaff: boolean;
-//   actor: string;
-//   image: string;
-//   wand: {
-//     wood: string;
-//     core: string;
-//     length: number | null;
-//   };
-//   hogwartStudent: boolean;
-// }
-
 function Houses() {
   const [error, setError] = useState<string | null>(null);
   const [houses, setHouses] = useState<House[]>([]);
@@ -94,14 +69,14 @@ function Houses() {
 
   return (
     <>
-      <div className="hogwards-wrapper">
+      <div className='hogwards-wrapper'>
         <h1>
           Персонажі в <br /> певному будинку
         </h1>
         <TfiHome onClick={handleHomeButton} />
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div className="houses-list flex">
+      <div className='houses-list flex'>
         {['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff'].map((house) => {
           const isActive = selectedHouse === house;
           const houseImages: Record<string, string> = {
@@ -114,22 +89,22 @@ function Houses() {
             <div
               key={house}
               className={`house flex align-items ${house.toLowerCase()} ${isActive ? 'active' : ''}`}
-              role="button"
+              role='button'
               onClick={() => handleHouseClick(house)}
             >
-              <img src={houseImages[house]} alt={house} className="house-img" />
-              <h3 className="house-name">{house}</h3>
+              <img src={houseImages[house]} alt={house} className='house-img' />
+              <h3 className='house-name'>{house}</h3>
             </div>
           );
         })}
       </div>
       {houses.length > 0 && (
-        <div className="house-details">
-          <div className="house-characters container">
+        <div className='house-details'>
+          <div className='house-characters container'>
             {houses.map((house) => (
               <div
                 key={house.id}
-                className="house-card container-card"
+                className='house-card container-card'
                 style={{
                   backgroundImage: house.image ? `url(${house.image})` : 'none',
                   backgroundSize: house.image ? 'cover' : 'initial',
@@ -148,7 +123,7 @@ function Houses() {
                     <span style={{ fontSize: '25px', fontStyle: 'italic' }}>Image is absent in the URL</span>
                   </div>
                 )}
-                <div className="card-content">
+                <div className='card-content'>
                   <h4>{house.name}</h4>
                   <p>
                     {house.alternate_names && house.alternate_names.length > 0 ? (
@@ -164,9 +139,9 @@ function Houses() {
                   </p>
                   <p>{house.house || 'House is not specified'}</p>
                   <p>{house.dateOfBirth || 'Date of birth is not specified'}</p>
-                  <div className="button-group" onClick={() => handleButtonClick(house)}>
+                  <div className='button-group' onClick={() => handleButtonClick(house)}>
                     <p>Більше інформації</p>
-                    <img src={arrow} alt="arrow" />
+                    <img src={arrow} alt='arrow' />
                   </div>
                 </div>
               </div>
